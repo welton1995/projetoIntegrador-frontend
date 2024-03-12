@@ -14,7 +14,7 @@ try {
       method: 'GET',
       redirect: 'follow'
   };
-  const resposta = await fetch(`https://conecta.cyclic.app/matriculas/${matricula}`, requestOptions)
+  const resposta = await fetch(`https://projetointegrador.cyclic.app/matriculas/${matricula}`, requestOptions)
   const conteudo = await resposta.json();
 
   // Coloca as informações vindas da requisação dentro da tabela do HTML;

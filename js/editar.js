@@ -40,7 +40,7 @@ botaoEditar.addEventListener('click', async (event)=> {
         "Content-Type": "application/json"
       }
   };
-  const resposta = await fetch(`https://conecta.cyclic.app/entradas/${id}`, requestOptions);
+  const resposta = await fetch(`https://projetointegrador.cyclic.app/entradas/${id}`, requestOptions);
   const conteudo = await resposta.json();
     
   if(conteudo == 'Registro atualizado com sucesso!'){
