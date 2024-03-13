@@ -1,22 +1,26 @@
-  const matricula = document.querySelector('#matricula');
-  const data = document.querySelector('#datahora');
+  const matricula = document.querySelector('#matriculaApagar');
+  const data = document.querySelector('#datahoraApagar');
+  const observacao = document.querySelector('#observacaoApagar');
   const apagar = document.querySelector('#apagar');
   const logo = document.querySelector('#logo');
   const voltar = document.querySelector('#voltar');
 
   const parametros = new URLSearchParams(window.location.search);
   const id = parametros.get('id')
-  const matriculaURL = parametros.get('matricula')
+  const matriculaURL = parametros.get('matricula');
+  const observacaoURL = parametros.get('observacao');
   const dataURL = parametros.get('data')
   const dataFormatada = new Date(dataURL)
   const dataCorreta = dataFormatada.toLocaleDateString('pt-BR', {timeZone: 'UTC', year: 'numeric', month:'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'});
   matricula.value = matriculaURL;
   data.value = dataCorreta;
+  observacao.value = observacaoURL
   
   apagar.addEventListener('click', async (event)=>{
     try {
       event.preventDefault();
         logo.src='../img/loading.gif';
+        logo.style.width = '50%';
         const requestOptions = {
           method: 'DELETE',
           redirect: 'follow',

@@ -7,10 +7,10 @@ const inputRgCadastro = document.querySelector('#rgCadastro');
 const inputCpfCadastro = document.querySelector('#cpfCadastro');
 const botaoCadastrar = document.querySelector('#cadastrar');
 // Editar registro
-const inputMatriculaEditar = document.querySelector('#matriculaEditar');
-const inputDataEditar = document.querySelector('#datahoraEditar');
-const inputObservarcaoEditar = document.querySelector('#observacaoEditar');
-const botaoEditar = document.querySelector('#editar');
+// const inputMatriculaEditar = document.querySelector('#matriculaEditar');
+// const inputDataEditar = document.querySelector('#datahoraEditar');
+// const inputObservarcaoEditar = document.querySelector('#observacaoEditar');
+// const botaoEditar = document.querySelector('#editar');
 // Registrar Acesso
 const botaoAcessar = document.querySelector('#registrar');
 const matriculaAcessar = document.querySelector('#matricula');
@@ -48,18 +48,19 @@ const buscaRegistros = async () => {
       <td  class="text-center">
           <a href="html/baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}" class="btn btn-outline-secondary mb-1">💾</a>
           <a href="html/editar.html?id=${entrada._id}&matricula=${entrada.matricula}" class="btn btn-outline-secondary mb-1">✏️</a>
-          <a href="html/apagar.html?matricula=${entrada.matricula}&id=${entrada._id}&data=${entrada.data}" class="btn btn-outline-secondary mb-1">🗑️</i></a>
+          <a href="html/apagar.html?matricula=${entrada.matricula}&id=${entrada._id}&data=${entrada.data}&observacao=${entrada.observacao}" class="btn btn-outline-secondary mb-1">🗑️</i></a>
           <a href="html/info.html?id=${entrada.matricula}" class="btn btn-outline-secondary mb-1">⚙️</a>
       </td>
       `
       tabela.appendChild(tr);
 
+
       bancodeDadosVazio.style.display = 'none';
-      imagemLoading.style.display = 'none';
-
-
+      
+      
     });
     
+    imagemLoading.style.display = 'none';
   } catch (error) {
     console.log(error);
     imagemLoading.style.display = 'block';
@@ -266,7 +267,10 @@ inputRgCadastro.addEventListener('keyup', ()=>{
 // Valida campo matricula
 matriculaAcessar.addEventListener('keyup', ()=> {
   if(matriculaAcessar.value.length > 6){
-    alert('passou');
+    Swal.fire({
+      title: "CPF deve conter 11 digitos!",
+      icon: "info",
+    });
    matriculaAcessar.value = matriculaAcessar.value.slice(0,6)
   }
 })

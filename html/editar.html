@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- animateCSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <!-- sweetalert -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.min.css" rel="stylesheet">
@@ -15,30 +17,75 @@
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd; box-shadow: 10px 2px 10px black;">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="../index.html">
-        <img src="../img/prefeitura.png" alt="" width="150px">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" href="#"   data-bs-toggle="modal" data-bs-target="#janelaModal">Cadastrar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="../index.html">Registros</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" id="inputBuscarCpf" placeholder="Pesquisar CPF" aria-label="Search">
-          <button class="btn btn-outline-primary" type="submit" id="btnBuscarCpf">Buscar</button>
-        </form>
+  <header>
+    <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd; box-shadow: 10px 2px 10px black;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html">
+          <img src="../img/prefeitura.png" alt="" width="150px" class="animate__animated animate__fadeInRightBig">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#"   data-bs-toggle="modal" data-bs-target="#janelaModal">Cadastrar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#"  data-bs-toggle="modal" data-bs-target="#janelaModalAcessar">Acessar</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" id="inputBuscarCpf" placeholder="Pesquisar CPF" aria-label="Search">
+            <button class="btn btn-outline-primary" type="submit" id="btnBuscarCpf">Buscar</button>
+          </form>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </header>
+
+      <!-- Modal acessar -->
+      <div class="modal fade" id="janelaModalAcessar">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Acessar 🔑</h2>
+                <button class="btn btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Formulario acessar -->
+              <div class="col d-flex justify-content-center align-items-center">
+                <div class="" style="width: 430px;">
+                  <form>
+                    <img src="../img/logo1.png" width="60%"  class="animate__animated animate__fadeInUpBig">
+                    <div class="form-group">
+                      <label class="form-label" for="matricula">Matrícula 📝</label>
+                      <input class="form-control" type="number" min="0" minlength="1" maxlength='6' id="matricula" required >
+                    </div>
+                
+                    <div class="form-group">
+                      <label class="form-label" for="datahora">Data 📆</label>
+                      <input class="form-control" type="datetime-local" id="datahora" required >
+                    </div>
+                
+                    <div class="form-group">
+                      <label class="form-label" for="observacao">Observação 🔍</label>
+                      <textarea class="form-control" id="observacao"></textarea>
+                    </div>
+                    <input class="btn btn-primary w-100 mb-2 mt-2" type="submit" value="REGISTRAR ACESSO" id="registrar">
+                    <div class="d-flex justify-content-center align-items-center">
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
 
     <!-- Modal cadastrar -->
     <div class="modal fade" id="janelaModal">
@@ -118,14 +165,6 @@
   </div>
   </div>
 
-  <footer class="footer" style="background-color: #e3f2fd; box-shadow: 10px -2px 10px black; margin-top: 25rem">
-    <div class="container text-light text-center">
-      <p>
-        <img src="../img/prefeitura1.png" width="150px">
-      </p>
-      <small class="text-black">&copy; Projeto Integrador Grupo 08</small>
-    </div>
-  </footer>
 
     <script src="../js/editar.js"></script>
     <script src="../js/app.js"></script>
