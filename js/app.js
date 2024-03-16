@@ -1,3 +1,5 @@
+window.location.reload();
+
 // Busca CPF
 const botaoBuscaCpf = document.querySelector('#btnBuscarCpf');
 const inputBuscaCpf = document.querySelector('#inputBuscarCpf');
