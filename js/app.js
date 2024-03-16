@@ -6,11 +6,7 @@ const inputNomeCadastro = document.querySelector('#nomeCadastro');
 const inputRgCadastro = document.querySelector('#rgCadastro');
 const inputCpfCadastro = document.querySelector('#cpfCadastro');
 const botaoCadastrar = document.querySelector('#cadastrar');
-// Editar registro
-// const inputMatriculaEditar = document.querySelector('#matriculaEditar');
-// const inputDataEditar = document.querySelector('#datahoraEditar');
-// const inputObservarcaoEditar = document.querySelector('#observacaoEditar');
-// const botaoEditar = document.querySelector('#editar');
+
 // Registrar Acesso
 const botaoAcessar = document.querySelector('#registrar');
 const matriculaAcessar = document.querySelector('#matricula');
@@ -47,7 +43,6 @@ const buscaRegistros = async () => {
       <td class="text-center">${entrada.observacao}</td>
       <td  class="text-center">
           <a href="html/baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}" class="btn btn-outline-secondary mb-1">💾</a>
-          <a href="html/editar.html?id=${entrada._id}&matricula=${entrada.matricula}" class="btn btn-outline-secondary mb-1">✏️</a>
           <a href="html/apagar.html?matricula=${entrada.matricula}&id=${entrada._id}&data=${entrada.data}&observacao=${entrada.observacao}" class="btn btn-outline-secondary mb-1">🗑️</i></a>
           <a href="html/info.html?id=${entrada.matricula}" class="btn btn-outline-secondary mb-1">⚙️</a>
       </td>
@@ -70,6 +65,7 @@ const buscaRegistros = async () => {
 buscaRegistros();
 
 // -------- BUSCAR CPF NO BANCO DE DADOS ------------
+
 // Valida o CPF para busca no banco de dados 'GET'/:cpf
 inputBuscaCpf.addEventListener('keyup', ()=>{
   if(inputBuscaCpf.value.length > 11){
@@ -167,6 +163,7 @@ inputRgCadastro.addEventListener('keyup', ()=>{
       Swal.fire({
         title: "Por favor preencha o campo 'Nome'!",
         icon: "warning",
+        confirmButtonColor: "#0275d8",
       });
 
     logo.src = './img/logo1.png';
@@ -177,6 +174,7 @@ inputRgCadastro.addEventListener('keyup', ()=>{
       Swal.fire({
         title: "O Campo 'RG' deve conter 9 digitos",
         icon: "warning",
+        confirmButtonColor: "#0275d8",
       });
 
     logo.src = './img/logo1.png';
@@ -186,6 +184,7 @@ inputRgCadastro.addEventListener('keyup', ()=>{
             Swal.fire({
         title: "O Campo 'CPF' deve conter 11 digitos",
         icon: "warning",
+        confirmButtonColor: "#0275d8",
       });
  
     logo.src = './img/logo1.png';
@@ -223,6 +222,7 @@ inputRgCadastro.addEventListener('keyup', ()=>{
       Swal.fire({
         title: "Matrícula já cadastrada. Por favor tente novamente",
         icon: "error",
+        confirmButtonColor: "#0275d8",
       });
       logo.src = './img/logo1.png';
       return
@@ -231,6 +231,7 @@ inputRgCadastro.addEventListener('keyup', ()=>{
       Swal.fire({
         title: "RG já cadastrado!",
         icon: "error",
+        confirmButtonColor: "#0275d8",
       });
     logo.src = './img/logo1.png';
       return
@@ -239,6 +240,7 @@ inputRgCadastro.addEventListener('keyup', ()=>{
       Swal.fire({
         title: "CPF já cadastrado!",
         icon: "error",
+        confirmButtonColor: "#0275d8",
       });
     logo.src = './img/logo1.png';
       return
@@ -247,6 +249,7 @@ inputRgCadastro.addEventListener('keyup', ()=>{
     Swal.fire({
       title: "Cadastro realizado com sucesso!",
       icon: "success",
+      confirmButtonColor: "#0275d8",
       html:`O número da sua matrícula é: <h3>${conteudo.matricula}</h3>`
     });
     logo.src = './img/logo1.png';
@@ -268,8 +271,9 @@ inputRgCadastro.addEventListener('keyup', ()=>{
 matriculaAcessar.addEventListener('keyup', ()=> {
   if(matriculaAcessar.value.length > 6){
     Swal.fire({
-      title: "CPF deve conter 11 digitos!",
+      title: "Matricula deve conter 6 digitos!",
       icon: "info",
+      confirmButtonColor: "#0275d8",
     });
    matriculaAcessar.value = matriculaAcessar.value.slice(0,6)
   }
@@ -283,9 +287,9 @@ botaoAcessar.addEventListener('click', async (event) => {
     if(!matriculaAcessar.value || matriculaAcessar.value.length != 6){
       Swal.fire({
         title: "Matrícula deve conter 6 digitos!",
-        icon: "info"
+        icon: "info",
+        confirmButtonColor: "#0275d8",
       });
-      // document.querySelector("#logo").style.display = "none";
       return
     }
 
@@ -293,9 +297,9 @@ botaoAcessar.addEventListener('click', async (event) => {
       Swal.fire({
         title: "Por favor preencha o campo Data",
         icon: "info",
+        confirmButtonColor: "#0275d8",
       });
       observacao.focus();
-    //  document.querySelector("#logo").style.display = "none";
       return 
     }
 
@@ -319,7 +323,8 @@ botaoAcessar.addEventListener('click', async (event) => {
   if(conteudo == 'Matrícula não cadastrada!'){
     Swal.fire({
       title: "Matricula não encontrada! Por favor cadastre-se!",
-      icon: "error"
+      icon: "error",
+      confirmButtonColor: "#0275d8",
     });
     document.querySelector("#logo").style.display = "none";
     return ;
@@ -328,9 +333,9 @@ botaoAcessar.addEventListener('click', async (event) => {
   if(conteudo == 'Matrícula cadastrada com sucesso!'){
     Swal.fire({
       title: "Acesso registrado com sucesso",
-      icon: "success"
+      icon: "success",
+      confirmButtonColor: "#0275d8",
     });
-    // document.querySelector("#logo").style.display = "none";
   }
 
   setTimeout(() => {

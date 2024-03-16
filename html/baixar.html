@@ -7,6 +7,7 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <!-- Gerador de PDF html2pdf -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
 
   <!-- sweetalert -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js"></script>
@@ -24,7 +25,7 @@
     <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd; box-shadow: 10px 2px 10px black;">
       <div class="container-fluid">
         <a class="navbar-brand" href="../index.html">
-          <img src="../img/prefeitura.png" alt="" width="150px" class="animate__animated animate__fadeInRightBig">
+          <img src="../img/logo1.png" alt="" width="180px" class="animate__animated animate__fadeInRightBig">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -128,8 +129,8 @@
     </div>
 
       <!-- Baixar acordion -->
-  <div class="accordion" id="accordionExample" style="margin-bottom: 25rem">
-    <div class="accordion-item text-center"  id="content">
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item text-center" style="box-shadow: 5px -5px 15px; margin: 2rem 1rem" id="content">
       <h2 class="accordion-header text-center">
         <button style='margin-top: 1rem; font-size: 2rem; font-weight: bold; background-color: #e3f2fd;' class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           Baixar relatório 💾
@@ -137,16 +138,16 @@
       </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
   <div class="accordion-body">
-    <img src="../img/logo1.png" alt="" style="margin: 2rem">
+    <img src="../img/logo1.png" alt="" style="margin: 2rem" class="animate__animated animate__rubberBand">
   <div class="col d-flex justify-content-center align-items-center">
-  <div class="bd-example">
-    <div class="my-5 principal">
+  <div style="width: 75%;" id="conteudo">
+
 
         <table class="table" id="tabela" style="margin: .5rem;">
 
         
         </table>
-    </div>
+
 
         <div class="col d-flex justify-content-center align-items-center">
           <a id="generate-pdf" class="btn btn-primary"  style="margin: .5rem;">GERAR PDF</a>
@@ -167,20 +168,34 @@
   <!-- Tabela baixar Registro -->
 
 
-  <script defer>
+  <script>
     const btnGenerate = document.querySelector('#generate-pdf');
+    const conteudo = document.querySelector('#conteudo');
 
-btnGenerate.addEventListener('click', ()=>{
-const content = document.querySelector('#content');
-const options = {
-// margin: [10, 10, 10, 10],
-filename: "relatório.pdf",
-html2canvas: { scale: 10 },
-jsPDF: { unit: "mm", orientation: "portrait" }
-};
+    btnGenerate.addEventListener('click', (e)=> {
+      e.preventDefault();
+  // Conteúdo HTML que você deseja converter em PDF
+  var htmlContent = conteudo;
 
-html2pdf().set(options).from(content).save();
-})
+  // Opções de configuração para o pdf
+  var options = {
+    margin: .25,
+    filename: 'relatorio.pdf', // Nome do arquivo de saída
+    image: { type: 'jpg', quality: 0.98 }, // Tipo de imagem e qualidade
+    html2canvas: { scale: 2 }, // Configuração do html2canvas
+    jsPDF: { unit: 'mm', format: 'letter', orientation: 'portrait' } // Configuração do jsPDF
+  };
+
+  // Use o html2pdf para converter o HTML em PDF e baixar o PDF
+  html2pdf().from(htmlContent).set(options).save();
+
+  Swal.fire({
+      title: "PDF gerado com sucesso",
+      icon: "success",
+      confirmButtonColor: "#0275d8",
+    });
+
+});
   </script>
 
     <script src="../js/baixar.js" defer></script>
