@@ -41,7 +41,7 @@ Em grupo, os alunos devem delimitar um problema a partir de um tema norteador, p
 :heavy_check_mark: Cadastrar acessos dos usuários através da matrícula;\
 :heavy_check_mark: Excluir acessos realizados pelos usuários;\
 :heavy_check_mark: Cadastrar novos usuários;\
-:heavy_check_mark: Gerar relatório PDF do acesso do usuário;\
+:heavy_check_mark: Gerar relatório PDF do acesso do usuário.
 
 ## :rocket: Tecnologias
 
