@@ -48,7 +48,7 @@ Em grupo, os alunos devem delimitar um problema a partir de um tema norteador, p
 
 ## :rocket: Tecnologias
 
-Algumas das tecnologias utilizadas nesse projeto foram:
+As tecnologias utilizadas nesse projeto foram:
 <h3>Front-end</h3>
 - [HTML] (https://developer.mozilla.org/pt-BR/docs/Web/HTML)<br>
 - [CSS] (https://developer.mozilla.org/pt-BR/docs/Web/CSS/)<br>
