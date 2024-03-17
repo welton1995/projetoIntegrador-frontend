@@ -19,10 +19,6 @@
 </p>
 
 <!-- Status -->
-
-<h4 align="center">
-	🚧  CEU Pimentas 🚀 Ainda em desenvolvimento...  🚧
-</h4>
 <hr>
 
 
