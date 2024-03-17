@@ -33,8 +33,11 @@
 <br>
 
 ## :dart: Sobre
+<p align="justify">
+O Sistema de acesso ao CEU Pimentas, é um projeto desenvolvido pelos alunos do curso de Bacharelado em Tecnologia da Infomação do Polo de Itaquaquecetuba para a disciplina de P.I. (Projeto Integrador). O P.I. trata-se de uma atividade curricular obrigatória que consiste na resolução de um problema real contextualizado na profissão em que o curso está inserido. A cada semestre o tema do PI muda, mas a metodologia continua a mesma!
 
-Esse é um projeto criado para desenvolver os conhecimentos dos alunos adquiridos em consumo de API.
+Em grupo, os alunos devem delimitar um problema a partir de um tema norteador, propondo uma solução aplicável, usando os conhecimentos estudados nas disciplinas cursadas até o momento. Ao longo do semestre, terão autonomia de aprendizagem no que tange à pesquisa, à organização e ao desenvolvimento do projeto, com suporte e acompanhamento periódico do(a) orientador(a) de PI.
+</p>
 
 ## 💪 Objetivos
 
