@@ -19,10 +19,6 @@
 </p>
 
 <!-- Status -->
-
-<h4 align="center">
-	🚧  CEU Pimentas 🚀 Ainda em desenvolvimento...  🚧
-</h4>
 <hr>
 
 
@@ -42,13 +38,14 @@ Em grupo, os alunos devem delimitar um problema a partir de um tema norteador, p
 ## 💪 Objetivos
 
 :heavy_check_mark: Listar todos acessos dos usuários;\
-:heavy_check_mark: Cadastrar acessos dos usuários;\
+:heavy_check_mark: Cadastrar acessos dos usuários através da matrícula;\
 :heavy_check_mark: Excluir acessos realizados pelos usuários;\
-:heavy_check_mark: Cadastrar usuários
+:heavy_check_mark: Cadastrar novos usuários;\
+:heavy_check_mark: Gerar relatório PDF do acesso do usuário.
 
 ## :rocket: Tecnologias
 
-Algumas das tecnologias utilizadas nesse projeto foram:
+As tecnologias utilizadas nesse projeto foram:
 <h3>Front-end</h3>
 - [HTML] (https://developer.mozilla.org/pt-BR/docs/Web/HTML)<br>
 - [CSS] (https://developer.mozilla.org/pt-BR/docs/Web/CSS/)<br>
@@ -63,11 +60,6 @@ Algumas das tecnologias utilizadas nesse projeto foram:
 - [Mongoose] (https://mongoosejs.com/)<br>
 <h3>Banco de Dados</h3>
 - [MongoDB] (https://www.mongodb.com/pt-br)<br>
-
-
-## :white_check_mark: Requisitos
-
-Você não precisa instalar nada para ver como está o projeto.
 
 ## :checkered_flag: Conheça o projeto
 
