@@ -1,3 +1,5 @@
+// URL API
+const URL = 'https://projetointegrador.cyclic.app';
 
 // Busca CPF
 const botaoBuscaCpf = document.querySelector('#btnBuscarCpf');
@@ -29,7 +31,7 @@ const buscaRegistros = async () => {
         method: 'GET',
         redirect: 'follow'
     };
-    const resposta = await fetch(`https://projetointegrador.cyclic.app/entradas`, requestOptions)
+    const resposta = await fetch(`${URL}/entradas`, requestOptions)
     const conteudo = await resposta.json();
     console.log(conteudo) 
     conteudo.entradas.reverse().forEach((entrada)=>{
@@ -98,7 +100,7 @@ botaoBuscaCpf.addEventListener('click', async (event)=> {
         "Content-Type": "application/json"
       }
   };
-  const resposta = await fetch(`https://projetointegrador.cyclic.app/matriculas/cpf/${inputBuscaCpf.value}`, requestOptions);
+  const resposta = await fetch(`${URL}/matriculas/cpf/${inputBuscaCpf.value}`, requestOptions);
   const conteudo = await resposta.json();
 
 
@@ -216,7 +218,7 @@ inputRgCadastro.addEventListener('keyup', ()=>{
         }
     };
 
-    const resposta = await fetch(`https://projetointegrador.cyclic.app/matriculas`, requestOptions)
+    const resposta = await fetch(`${URL}/matriculas`, requestOptions)
     const conteudo = await resposta.json();
 
     if(conteudo == 'Matricula já cadastrada!'){
@@ -318,7 +320,7 @@ botaoAcessar.addEventListener('click', async (event) => {
       }
   };
 
-  const resposta = await fetch(`https://projetointegrador.cyclic.app/entradas`, requestOptions)
+  const resposta = await fetch(`${URL}/entradas`, requestOptions)
   const conteudo = await resposta.json();
 
   if(conteudo == 'Matrícula não cadastrada!'){

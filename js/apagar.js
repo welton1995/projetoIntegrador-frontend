@@ -4,6 +4,8 @@
   const apagar = document.querySelector('#apagar');
   const logo = document.querySelector('#logo');
   const voltar = document.querySelector('#voltar');
+  const URL = 'https://projetointegrador.cyclic.app';
+
 
   const parametros = new URLSearchParams(window.location.search);
   const id = parametros.get('id')
@@ -28,7 +30,7 @@
             "Content-Type": "application/json"
           }
       };
-      const resposta = await fetch(`https://projetointegrador.cyclic.app/entradas/${id}`, requestOptions);
+      const resposta = await fetch(`${URL}/entradas/${id}`, requestOptions);
       const conteudo = await resposta.json();
 
       if(conteudo == 'Registro removido com sucesso!'){

@@ -5,6 +5,8 @@ const observacao = parametros.get('observacao');
 const dataFormatada = new Date(parametros.get('data')); // Pega a data via URL
 const dataCorreta = dataFormatada.toLocaleDateString('pt-BR', {timeZone: 'UTC', year: 'numeric', month:'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'});
 const tabela = document.querySelector('#tabela');
+const URL = 'https://projetointegrador.cyclic.app';
+
 
 console.log(dataFormatada)
 
@@ -14,7 +16,7 @@ try {
       method: 'GET',
       redirect: 'follow'
   };
-  const resposta = await fetch(`https://projetointegrador.cyclic.app/matriculas/${matricula}`, requestOptions)
+  const resposta = await fetch(`${URL}/matriculas/${matricula}`, requestOptions)
   const conteudo = await resposta.json();
 
   // Coloca as informações vindas da requisação dentro da tabela do HTML;

@@ -60,6 +60,11 @@ buscar.addEventListener('click', async (event) => {
             `
             tabela.appendChild(tr);
       
+            Swal.fire({
+              title: `${conteudo.length} registro(s) encontrados`,
+              icon: "success",
+              confirmButtonColor: "#0275d8",
+            });
       
             bancodeDadosVazio.style.display = 'none';
             

@@ -2,6 +2,8 @@ const nome = document.querySelector('#nome');
 const matricula = document.querySelector('#matricula');
 const rg = document.querySelector('#rg');
 const cpf = document.querySelector('#cpf');
+const URL = 'https://projetointegrador.cyclic.app';
+
 
 // PEGANDO OS PARAMETROS VIA URL
 const parametros = new URLSearchParams(window.location.search);
@@ -13,7 +15,7 @@ try {
     method: 'GET',
     redirect: 'follow'
 };
-const resposta = await fetch(`https://projetointegrador.cyclic.app/matriculas/${id}`, requestOptions);
+const resposta = await fetch(`${URL}/matriculas/${id}`, requestOptions);
 const conteudo = await resposta.json();
 
 const tabela = document.querySelector('#tabela');
