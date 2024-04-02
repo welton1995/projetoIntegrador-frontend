@@ -92,6 +92,7 @@ buscar.addEventListener('click', async (event) => {
 semana.addEventListener('click', async(event) => {
   try {
     event.preventDefault();
+    limparTabela();
       const requestOptions = {
         method: 'GET',
         redirect: 'follow',
@@ -151,6 +152,7 @@ semana.addEventListener('click', async(event) => {
 mes.addEventListener('click', async(event) => {
   try {
     event.preventDefault();
+    limparTabela();
       const requestOptions = {
         method: 'GET',
         redirect: 'follow',
@@ -210,6 +212,7 @@ mes.addEventListener('click', async(event) => {
 ano.addEventListener('click', async(event) => {
   try {
     event.preventDefault();
+    limparTabela();
       const requestOptions = {
         method: 'GET',
         redirect: 'follow',
@@ -274,10 +277,11 @@ limpar.addEventListener('click', () => {
     }
 });
 
-let contador = 1;
-
-function gerarNumero() {
-  let numero = contador.toString().padStart(6, '0'); // Transforma o contador em uma string de 6 dígitos preenchidos com zeros à esquerda
-  contador++; // Incrementa o contador para a próxima chamada
-  return numero; // Retorna o número gerado
+const limparTabela = () => {
+  try {
+    let tabela = document.querySelector('#tabela');
+    tabela.innerHTML = ``
+  } catch (error) {
+    console.log(error);
+  }
 }
