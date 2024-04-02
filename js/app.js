@@ -261,7 +261,7 @@ inputRgCadastro.addEventListener('keyup', ()=>{
     // Leva usuario para pagina inicial
     setTimeout(() => {
       window.location.reload();
-    }, 5000);
+    }, 10000);
   
     } catch (error) {
       console.log(error);
