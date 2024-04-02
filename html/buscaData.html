@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="../css/style.css">
-    <title>Relatórios</title>
+    <title>Buscar Registros</title>
   </head>
   <body>
     <!-- Navbar -->
@@ -65,9 +65,13 @@
             <input class="form-control" type="date" id="fim" required >
           </div>
 
-          <input class="btn btn-primary w-100 mb-2 mt-2" type="submit" value="BUSCAR" id="buscar">
-          <input class="btn btn-secondary w-100 mb-2 mt-2" type="submit" value="LIMPAR" id="limpar">
-          <div class="d-flex justify-content-center align-items-center">
+          <input class="btn btn-primary w-100 mb-2 mt-2" type="submit" value="ㅤㅤㅤㅤBUSCARㅤㅤㅤㅤ" id="buscar" title="Buscar Registros">
+          <input class="btn btn-secondary w-100 mb-2 mt-2" type="submit" value="LIMPAR" id="limpar" title="Limpar Consultas">
+
+            <div style="display: flex; justify-content: space-between; padding: 0;">
+                <button type="button" class="btn btn-primary" title="7 Dias" id="semana">SEMANA</button>
+                <button type="button" class="btn btn-primary" title="30 Dias" id="mes">MÊS</button>
+                <button type="button" class="btn btn-primary" title="365 Dias" id="ano">ANO</button>
           </div>
         </form>
       </div>
@@ -149,5 +153,6 @@
 
 
     <script src="../js/buscaData.js"></script>
+    <script src="../js/app.js"></script>
   </body>
   </html>
