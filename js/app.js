@@ -16,6 +16,26 @@ const matriculaAcessar = document.querySelector('#matricula');
 const dataAcessar = document.querySelector('#datahora');
 const observacaoAcessar = document.querySelector('#observacao');
 
+// Funcao conta Matriculas
+const geraMatricula = async () => {
+  try {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+      headers: {
+        "Content-Type": "application/json"
+      }
+  };
+  const resposta = await fetch(`${URL}/matriculas`, requestOptions);
+  const conteudo = await resposta.json();
+  let quantidadeMatriculas = await conteudo.matriculas.length + 1;
+  let numero = await quantidadeMatriculas.toString().padStart(6, '0');
+  return numero;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 // -------- RELATORIO DE ACESSO -----------------
 // Busca registros no Banco de dados 'GET'
 const buscaRegistros = async () => {
@@ -179,7 +199,6 @@ inputRgCadastro.addEventListener('keyup', ()=>{
         icon: "warning",
         confirmButtonColor: "#0275d8",
       });
-
     logo.src = './img/logo1.png';
     return ;
     }
@@ -189,7 +208,6 @@ inputRgCadastro.addEventListener('keyup', ()=>{
         icon: "warning",
         confirmButtonColor: "#0275d8",
       });
- 
     logo.src = './img/logo1.png';
     return;
     }
@@ -197,14 +215,15 @@ inputRgCadastro.addEventListener('keyup', ()=>{
 
     try {
       // Função que gera um número aleatório de matrícula
-      function gerarMatricula() {
-        let numero = Math.floor(Math.random() * 1000000);
-        numero = numero.toString().padStart(6, '0');
-        return numero;
-      }
+      // function gerarMatricula() {
+      //   let numero = Math.floor(Math.random() * 1000000);
+      //   numero = numero.toString().padStart(6, '0');
+      //   return numero;
+      // }
+
 
       const raw = {
-        matricula: gerarMatricula(),
+        matricula:  await geraMatricula(),
         nome: inputNomeCadastro.value,
         rg: inputRgCadastro.value,
         cpf: inputCpfCadastro.value,
@@ -257,6 +276,7 @@ inputRgCadastro.addEventListener('keyup', ()=>{
     });
     logo.src = './img/logo1.png';
 
+    console.log(conteudo);
   
     // Leva usuario para pagina inicial
     setTimeout(() => {
@@ -349,6 +369,8 @@ botaoAcessar.addEventListener('click', async (event) => {
   } catch (error) {
     console.log(error);
   }
-})
+});
+
+
 
 
