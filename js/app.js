@@ -72,9 +72,7 @@ const buscaRegistros = async () => {
       `
       tabela.appendChild(tr);
 
-
       bancodeDadosVazio.style.display = 'none';
-      
       
     });
     
@@ -270,7 +268,7 @@ inputRgCadastro.addEventListener('keyup', ()=>{
     // Leva usuario para pagina inicial
     setTimeout(() => {
       window.location.reload();
-    }, 10000);
+    }, 3000);
   
     } catch (error) {
       console.log(error);
