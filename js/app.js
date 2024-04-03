@@ -61,9 +61,9 @@ const buscaRegistros = async () => {
       const tr = document.createElement('tr');
       tr.innerHTML = `
 
-      <td class='text-center'>${entrada.matricula}</td>
-      <td class="text-center">${dataCorreta}</td>
-      <td class="text-center">${entrada.observacao}</td>
+      <td class='text-center'><a href="html/info.html?id=${entrada.matricula}">${entrada.matricula}</a></td>
+      <td class="text-center"><a href="html/info.html?id=${entrada.matricula}">${dataCorreta}</a></td>
+      <td class="text-center"><a href="html/info.html?id=${entrada.matricula}">${entrada.observacao}</a></td>
       <td  class="text-center">
           <a href="html/baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}" class="btn btn-outline-secondary mb-1">💾</a>
           <a href="html/apagar.html?matricula=${entrada.matricula}&id=${entrada._id}&data=${entrada.data}&observacao=${entrada.observacao}" class="btn btn-outline-secondary mb-1">🗑️</i></a>
@@ -212,16 +212,7 @@ inputRgCadastro.addEventListener('keyup', ()=>{
     return;
     }
 
-
     try {
-      // Função que gera um número aleatório de matrícula
-      // function gerarMatricula() {
-      //   let numero = Math.floor(Math.random() * 1000000);
-      //   numero = numero.toString().padStart(6, '0');
-      //   return numero;
-      // }
-
-
       const raw = {
         matricula:  await geraMatricula(),
         nome: inputNomeCadastro.value,
@@ -275,8 +266,6 @@ inputRgCadastro.addEventListener('keyup', ()=>{
       html:`O número da sua matrícula é: <h3>${conteudo.matricula}</h3>`
     });
     logo.src = './img/logo1.png';
-
-    console.log(conteudo);
   
     // Leva usuario para pagina inicial
     setTimeout(() => {
@@ -300,8 +289,7 @@ matriculaAcessar.addEventListener('keyup', ()=> {
     });
    matriculaAcessar.value = matriculaAcessar.value.slice(0,6)
   }
-})
-
+});
 
 // Registra acesso
 botaoAcessar.addEventListener('click', async (event) => {

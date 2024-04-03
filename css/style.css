@@ -1,3 +1,10 @@
 td:hover {
-  background-color: #e3f2fdFF;
+  background-color: #64bbfab6;
+  cursor: pointer;
 }
+
+a {
+  text-decoration: none;
+  color: black
+}
+
