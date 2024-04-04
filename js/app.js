@@ -53,7 +53,6 @@ const buscaRegistros = async () => {
     };
     const resposta = await fetch(`${URL}/entradas`, requestOptions)
     const conteudo = await resposta.json();
-    console.log(conteudo) 
     conteudo.entradas.reverse().forEach((entrada)=>{
       const dataFormatada = new Date(entrada.data);
       const dataCorreta = dataFormatada.toLocaleDateString('pt-BR', {timeZone: 'UTC', year: 'numeric', month:'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'});
