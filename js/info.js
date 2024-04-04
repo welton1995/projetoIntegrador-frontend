@@ -8,6 +8,12 @@ const URL = 'https://projetointegrador.cyclic.app';
 const botaoBuscaCpf = document.querySelector('#btnBuscarCpf');
 const inputBuscaCpf = document.querySelector('#inputBuscarCpf');
 
+// Cadastra usuario
+const inputNomeCadastro = document.querySelector('#nomeCadastro');
+const inputRgCadastro = document.querySelector('#rgCadastro');
+const inputCpfCadastro = document.querySelector('#cpfCadastro');
+const botaoCadastrar = document.querySelector('#cadastrar');
+
 
 // PEGANDO OS PARAMETROS VIA URL
 const parametros = new URLSearchParams(window.location.search);
@@ -106,3 +112,148 @@ botaoBuscaCpf.addEventListener('click', async (event)=> {
   }
 
 });
+
+// ---------- CADASTRAR -----------
+
+// Funcao conta Matriculas
+const geraMatricula = async () => {
+  try {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+      headers: {
+        "Content-Type": "application/json"
+      }
+  };
+  const resposta = await fetch(`${URL}/matriculas`, requestOptions);
+  const conteudo = await resposta.json();
+  let quantidadeMatriculas = await conteudo.matriculas.length + 1;
+  let numero = await quantidadeMatriculas.toString().padStart(6, '0');
+  return numero;
+  } catch (error) {
+    console.log(error);
+  }
+};
+//  Valida se RG tem 9 digitos
+inputRgCadastro.addEventListener('keyup', ()=>{
+  if(inputRgCadastro.value.length > 9){
+    Swal.fire({
+        title: "RG deve conter 9 digitos!",
+        icon: "warning",
+      });
+      inputRgCadastro.value = inputRgCadastro.value.slice(0,9);
+  }
+ });
+//  Valida se CPF tem 11 digitos
+ inputCpfCadastro.addEventListener('keyup', ()=>{
+  if(inputCpfCadastro.value.length > 11){
+    Swal.fire({
+        title: "CPF deve conter 11 digitos!",
+        icon: "warning",
+      });
+      inputCpfCadastro.value = inputCpfCadastro.value.slice(0,11);
+  }
+ });
+//  Cadastrar o usúario no Banco de dados
+   botaoCadastrar.addEventListener('click', async (event)=>{
+    let logo = document.querySelector('#imagemLogo');
+    
+    logo.src = '../img/loading.gif';
+    logo.style.width = '50%'
+    event.preventDefault();
+
+    if(!inputNomeCadastro.value){ // Valida nome
+      Swal.fire({
+        title: "Por favor preencha o campo 'Nome'!",
+        icon: "warning",
+        confirmButtonColor: "#0275d8",
+      });
+
+    logo.src = '../img/logo1.png';
+    return ;
+    }
+
+    if(!inputRgCadastro.value || inputRgCadastro.value.length != 9){ // Valida RG
+      Swal.fire({
+        title: "O Campo 'RG' deve conter 9 digitos",
+        icon: "warning",
+        confirmButtonColor: "#0275d8",
+      });
+    logo.src = '../img/logo1.png';
+    return ;
+    }
+    if(!inputCpfCadastro.value || inputCpfCadastro.value.length != 11){ // Valida CPF
+            Swal.fire({
+        title: "O Campo 'CPF' deve conter 11 digitos",
+        icon: "warning",
+        confirmButtonColor: "#0275d8",
+      });
+    logo.src = '../img/logo1.png';
+    return;
+    }
+
+    try {
+      const raw = {
+        matricula:  await geraMatricula(),
+        nome: inputNomeCadastro.value,
+        rg: inputRgCadastro.value,
+        cpf: inputCpfCadastro.value,
+      }
+      const requestOptions = {
+        method: 'POST',
+        body: JSON.stringify(raw),
+        redirect: 'follow',
+        headers: {
+          "Content-Type": "application/json"
+        }
+    };
+
+    const resposta = await fetch(`${URL}/matriculas`, requestOptions)
+    const conteudo = await resposta.json();
+
+    if(conteudo == 'Matricula já cadastrada!'){
+      Swal.fire({
+        title: "Matrícula já cadastrada. Por favor tente novamente",
+        icon: "error",
+        confirmButtonColor: "#0275d8",
+      });
+      logo.src = '../img/logo1.png';
+      return
+    }
+    if(conteudo == 'RG já cadastrado!'){
+      Swal.fire({
+        title: "RG já cadastrado!",
+        icon: "error",
+        confirmButtonColor: "#0275d8",
+      });
+    logo.src = '../img/logo1.png';
+      return
+    }
+    if(conteudo == 'CPF já cadastrado!'){
+      Swal.fire({
+        title: "CPF já cadastrado!",
+        icon: "error",
+        confirmButtonColor: "#0275d8",
+      });
+    logo.src = '../img/logo1.png';
+      return
+    }
+
+    Swal.fire({
+      title: "Cadastro realizado com sucesso!",
+      icon: "success",
+      confirmButtonColor: "#0275d8",
+      html:`O número da sua matrícula é: <h3>${conteudo.matricula}</h3>`
+    });
+    logo.src = '../img/logo1.png';
+  
+    // Leva usuario para pagina inicial
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
+  
+    } catch (error) {
+      console.log(error);
+    logo.src = '../img/logo1.png';
+    }
+  });

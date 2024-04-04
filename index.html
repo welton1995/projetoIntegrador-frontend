@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="./css/style.css">
-    <title>CEU Pimentas</title>
+    <title>CEU Pimentas - Home</title>
   </head>
   <body>
     <!-- Navbar -->
@@ -35,7 +35,7 @@
               <a class="nav-link active" href="#"   data-bs-toggle="modal" data-bs-target="#janelaModal">Cadastrar 🖥️</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#registrar"  data-bs-toggle="modal" data-bs-target="#janelaModalAcessar">Acessar 👤</a>
+              <a class="nav-link active" href="#acessar">Acessar 👤</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./html/buscaData.html" style="text-decoration: none; color: #000">Buscar 🔎</a>
@@ -51,11 +51,11 @@
   </header>
 
   <main>
-    <!-- Modal acessar -->
+    <!-- Acessar -->
     <div class="col d-flex justify-content-center align-items-center">
       <div class="">
         <form style="padding: 2rem; border-radius: 14px; box-shadow: 5px 5px 15px; background-color: #e3f2fd; margin: 1rem 0">
-          <h2 class="text-center">Acessar 👤</h2>          
+          <h2 class="text-center" id="acessar">Acessar 👤</h2>          
           <div class="form-group">
             <label class="form-label" for="matricula">Matrícula 📝</label>
             <input class="form-control" type="number" min="0" minlength="1" maxlength='6' id="matricula" required >
@@ -76,7 +76,8 @@
         </form>
       </div>
     </div>
-    <!-- Modal cadastrar -->
+
+    <!-- Cadastrar -->
     <div class="modal fade" id="janelaModal">
       <div class="modal-dialog modal-dialog-centered modal-lg">
           
@@ -111,8 +112,6 @@
       </div>
       </div>
     </div>
-
-
     </div> 
 
                 <!-- Tabela de registros -->
@@ -138,9 +137,6 @@
                   </div>
                 </div>
   </main>
-
-
-
     <script src="./js/app.js"></script>
   </body>
   </html>
