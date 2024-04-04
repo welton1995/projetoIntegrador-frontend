@@ -62,9 +62,9 @@ buscar.addEventListener('click', async (event) => {
             const tr = document.createElement('tr');
             tr.innerHTML = `
       
-            <td class='text-center'>${entrada.matricula}</td>
-            <td class="text-center">${dataCorreta}</td>
-            <td class="text-center">${entrada.observacao}</td>
+            <td class='text-center'><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.matricula}</a></td>
+            <td class="text-center"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${dataCorreta}</a></td>
+            <td class="text-center"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.observacao}</a></td>
             <td  class="text-center">
                 <a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}" class="btn btn-outline-secondary mb-1">💾</a>
                 <a href="./apagar.html?matricula=${entrada.matricula}&id=${entrada._id}&data=${entrada.data}&observacao=${entrada.observacao}" class="btn btn-outline-secondary mb-1">🗑️</i></a>
@@ -122,9 +122,9 @@ semana.addEventListener('click', async(event) => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
   
-        <td class='text-center'>${entrada.matricula}</td>
-        <td class="text-center">${dataCorreta}</td>
-        <td class="text-center">${entrada.observacao}</td>
+        <td class='text-center'><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.matricula}</a></td>
+        <td class="text-center"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${dataCorreta}</a></td>
+        <td class="text-center"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.observacao}</a></td>
         <td  class="text-center">
             <a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}" class="btn btn-outline-secondary mb-1">💾</a>
             <a href="./apagar.html?matricula=${entrada.matricula}&id=${entrada._id}&data=${entrada.data}&observacao=${entrada.observacao}" class="btn btn-outline-secondary mb-1">🗑️</i></a>
@@ -182,9 +182,9 @@ mes.addEventListener('click', async(event) => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
   
-        <td class='text-center'>${entrada.matricula}</td>
-        <td class="text-center">${dataCorreta}</td>
-        <td class="text-center">${entrada.observacao}</td>
+        <td class='text-center'><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.matricula}</a></td>
+        <td class="text-center"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${dataCorreta}</a></td>
+        <td class="text-center"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.observacao}</a></td>
         <td  class="text-center">
             <a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}" class="btn btn-outline-secondary mb-1">💾</a>
             <a href="./apagar.html?matricula=${entrada.matricula}&id=${entrada._id}&data=${entrada.data}&observacao=${entrada.observacao}" class="btn btn-outline-secondary mb-1">🗑️</i></a>
@@ -242,9 +242,9 @@ ano.addEventListener('click', async(event) => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
   
-        <td class='text-center'>${entrada.matricula}</td>
-        <td class="text-center">${dataCorreta}</td>
-        <td class="text-center">${entrada.observacao}</td>
+        <td class='text-center'><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.matricula}</a></td>
+        <td class="text-center"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${dataCorreta}</a></td>
+        <td class="text-center"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.observacao}</a></td>
         <td  class="text-center">
             <a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}" class="btn btn-outline-secondary mb-1">💾</a>
             <a href="./apagar.html?matricula=${entrada.matricula}&id=${entrada._id}&data=${entrada.data}&observacao=${entrada.observacao}" class="btn btn-outline-secondary mb-1">🗑️</i></a>

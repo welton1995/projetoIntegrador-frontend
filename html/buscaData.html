@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="../css/style.css">
-    <title>CEU Pimentas</title>
+    <title>CEU Pimentas - Buscar por data</title>
   </head>
   <body>
     <!-- Navbar -->
@@ -115,40 +115,27 @@
     </div>
 
     <!-- Relatórios -->
-    <div class="accordion row" id="accordionExample" style="padding: 0; margin: 0;">
-      <div class="accordion-item text-center">
-        <h2 class="accordion-header text-center">
-          <button id="link" style='font-size: 2rem; font-weight: bold; background-color: #e3f2fd; padding: 1rem; margin: 0' class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
-          Registros 🗃️
-          </button>
-        </h2>
-        <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-    
-            <!-- Tabela de registros -->
-            <table class="table">
-              <thead>
-                  <tr>
-                      <th scope="col" class="text-center">Matrícula 📝</th>
-                      <th scope="col" class="text-center">Data e Hora📆</th>
-                      <th scope="col" class="text-center">Observação 🔍</th>
-                      <th scope="col" class="text-center">Ações 💻</th>
-                  </tr>
-              </thead>
-              <tbody id="tabela">
-              </tbody>
-            </table>
-            <div class="bd-example">
-              <div class="col d-flex justify-content-center align-items-center">
-                <h4 id="bancodeDadosVazio">Nenhum registro</h4>
-                <img class='text-center' src="../img/loading.gif" alt="loading" id="loading" width="50px"  style="display: none;">
-            </div>
-        </div>
-          </div>
-        </div>
-      </div>
-    
-    
+<div style="padding: .25rem; background-color: #e3f2fd;">
+  <h2>Registros 🗃️</h2>
+</div>
+
+    <table class="table" style="margin-bottom: 1rem;">
+      <thead>
+          <tr>
+              <th scope="col" class="text-center">Matrícula 📝</th>
+              <th scope="col" class="text-center">Data e Hora📆</th>
+              <th scope="col" class="text-center">Observação 🔍</th>
+              <th scope="col" class="text-center">Ações 💻</th>
+          </tr>
+      </thead>
+      <tbody id="tabela">
+      </tbody>
+    </table>
+    <div class="bd-example">
+      <div class="col d-flex justify-content-center align-items-center">
+        <h4 id="bancodeDadosVazio">Nenhum registro</h4>
+        <img class='text-center' src="../img/loading.gif" alt="loading" id="loading" width="50px"  style="display: none;">
+    </div>
     </div>
   </main>
 

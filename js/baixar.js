@@ -7,9 +7,7 @@ const dataCorreta = dataFormatada.toLocaleDateString('pt-BR', {timeZone: 'UTC', 
 const tabela = document.querySelector('#tabela');
 const URL = 'https://projetointegrador.cyclic.app';
 
-
-console.log(dataFormatada)
-
+// Busca pela matricula
 const buscaMatricula = async () => {
 try {
     const requestOptions = {
@@ -28,25 +26,21 @@ try {
     <th scope="col">Matrícula 📝</th>
     <th scope="col">Data 📆</th>
     <th scope="col">Observação 🔍</th>
-    <th scope="col">-</th>
   </tr>
   <tr>
     <td>${matricula}</td>
     <td>${dataCorreta}</td>
     <td>${observacao}</td>
-    <td>-</td>
   </tr>
   <tr>
     <th colspan="4" style="text-align: center; margin: 1rem;"><h3>Informações do Usuário  📂</h3></th>
   </tr>
   <tr>
-    <th scope="col">Matrícula 📝</th>
     <th scope="col">Nome 👤</th>
     <th scope="col">RG  🪪</th>
     <th scope="col">CPF  💳</th>
   </tr>
   <tr>
-    <td>${conteudo.infos.matricula}</td>
     <td>${conteudo.infos.nome}</td>
     <td>${conteudo.infos.rg}</td>
     <td>${conteudo.infos.cpf}</td>
