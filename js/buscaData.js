@@ -6,6 +6,10 @@ const semana = document.querySelector('#semana');
 const mes = document.querySelector('#mes');
 const ano = document.querySelector('#ano');
 
+// Busca CPF
+const botaoBuscaCpf = document.querySelector('#btnBuscarCpf');
+const inputBuscaCpf = document.querySelector('#inputBuscarCpf');
+
 const URL = 'https://projetointegrador.cyclic.app';
 
 // Funcao Busca data especifica
@@ -285,3 +289,67 @@ const limparTabela = () => {
     console.log(error);
   }
 }
+
+// -------- BUSCAR CPF NO BANCO DE DADOS ------------
+// Valida o CPF para busca no banco de dados 'GET'/:cpf
+inputBuscaCpf.addEventListener('keyup', ()=>{
+  if(inputBuscaCpf.value.length > 11){
+    Swal.fire({
+        title: "CPF deve conter 11 digitos!",
+        icon: "warning",
+        confirmButtonColor: "#0275d8",
+      });
+      inputBuscaCpf.value = inputBuscaCpf.value.slice(0,11);
+  }
+ });
+
+ // Busca CPF no Banco de dados 'GET'/:cpf
+botaoBuscaCpf.addEventListener('click', async (event)=> {
+  event.preventDefault();
+  try {
+    if(!inputBuscaCpf.value || inputBuscaCpf.value.length != 11){
+      Swal.fire({
+        title: "O campo 'CPF' deve conter 11 digitos!",
+        icon: "info",
+        confirmButtonColor: "#0275d8",
+      });
+      return;
+    }
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+      headers: {
+        "Content-Type": "application/json"
+      }
+  };
+  const resposta = await fetch(`${URL}/matriculas/cpf/${inputBuscaCpf.value}`, requestOptions);
+  const conteudo = await resposta.json();
+
+
+  if(conteudo == "Matrícula não encontrada!"){
+    Swal.fire({
+      title: "Usuário não cadastrado!",
+      icon: "warning",
+      confirmButtonColor: "#d9534f",
+    });
+    return inputBuscaCpf.value = '';
+  }
+
+
+  Swal.fire({
+    title: `${conteudo.infos.nome}`,
+    icon: "success",
+    confirmButtonColor: "#0275d8",
+    html: `
+    <b>Matrícula</b>: ${conteudo.infos.matricula}<br>
+    <b>CPF</b>: ${conteudo.infos.cpf}<br>
+    <b>RG</b>: ${conteudo.infos.rg}<br>
+    `
+  });
+
+  console.log(conteudo);
+  } catch (error) {
+    console.log(error);
+  }
+
+});
