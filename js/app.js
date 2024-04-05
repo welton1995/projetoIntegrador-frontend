@@ -60,10 +60,10 @@ const buscaRegistros = async () => {
       const tr = document.createElement('tr');
       tr.innerHTML = `
 
-      <td class='text-center'><a href="html/info.html?id=${entrada.matricula}">${entrada.matricula}</a></td>
-      <td class="text-center"><a href="html/info.html?id=${entrada.matricula}">${dataCorreta}</a></td>
-      <td class="text-center"><a href="html/info.html?id=${entrada.matricula}">${entrada.observacao}</a></td>
-      <td  class="text-center">
+      <td class="text-center align-middle"><a href="html/info.html?id=${entrada.matricula}">${entrada.matricula}</a></td>
+      <td class="text-center align-middle"><a href="html/info.html?id=${entrada.matricula}">${dataCorreta}</a></td>
+      <td class="text-center align-middle"><a href="html/info.html?id=${entrada.matricula}">${entrada.observacao}</a></td>
+      <td class="text-center align-middle">
           <a href="html/baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}" class="btn btn-outline-secondary mb-1">💾</a>
           <a href="html/apagar.html?matricula=${entrada.matricula}&id=${entrada._id}&data=${entrada.data}&observacao=${entrada.observacao}" class="btn btn-outline-secondary mb-1">🗑️</i></a>
           <a href="html/info.html?id=${entrada.matricula}" class="btn btn-outline-secondary mb-1">⚙️</a>

@@ -57,7 +57,7 @@ buscar.addEventListener('click', async (event) => {
 
           if(conteudo.length == 0){
             Swal.fire({
-              title: `${conteudo.length} registro(s) encontrados!`,
+              title: `${conteudo.length} registro(s) encontrado(s)!`,
               icon: "success",
               confirmButtonColor: "#0275d8",
             });
@@ -85,7 +85,7 @@ buscar.addEventListener('click', async (event) => {
             tabela.appendChild(tr);
       
             Swal.fire({
-              title: `${conteudo.length} registro(s) encontrados!`,
+              title: `${conteudo.length} registro(s) encontrado(s)!`,
               icon: "success",
               confirmButtonColor: "#0275d8",
             });
@@ -117,7 +117,7 @@ semana.addEventListener('click', async(event) => {
 
       if(conteudo.length == 0){
         Swal.fire({
-          title: `${conteudo.length} registro(s) encontrados na última semana!`,
+          title: `${conteudo.length} registro(s) encontrado(s) na última semana!`,
           icon: "success",
           confirmButtonColor: "#0275d8",
         });
@@ -133,10 +133,10 @@ semana.addEventListener('click', async(event) => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
   
-        <td class='text-center'><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.matricula}</a></td>
-        <td class="text-center"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${dataCorreta}</a></td>
-        <td class="text-center"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.observacao}</a></td>
-        <td  class="text-center">
+        <td class="text-center align-middle"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.matricula}</a></td>
+        <td class="text-center align-middle"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${dataCorreta}</a></td>
+        <td class="text-center align-middle"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.observacao}</a></td>
+        <td class="text-center align-middle">
             <a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}" class="btn btn-outline-secondary mb-1">💾</a>
             <a href="./apagar.html?matricula=${entrada.matricula}&id=${entrada._id}&data=${entrada.data}&observacao=${entrada.observacao}" class="btn btn-outline-secondary mb-1">🗑️</i></a>
             <a href="./info.html?id=${entrada.matricula}" class="btn btn-outline-secondary mb-1">⚙️</a>
@@ -145,7 +145,7 @@ semana.addEventListener('click', async(event) => {
         tabela.appendChild(tr);
   
         Swal.fire({
-          title: `${conteudo.length} registro(s) encontrados na última semana!`,
+          title: `${conteudo.length} registro(s) encontrado(s) na última semana!`,
           icon: "success",
           confirmButtonColor: "#0275d8",
         });
@@ -177,7 +177,7 @@ mes.addEventListener('click', async(event) => {
 
       if(conteudo.length == 0){
         Swal.fire({
-          title: `${conteudo.length} registro(s) encontrados no último mês!`,
+          title: `${conteudo.length} registro(s) encontrado(s) no último mês!`,
           icon: "success",
           confirmButtonColor: "#0275d8",
         });
@@ -193,10 +193,10 @@ mes.addEventListener('click', async(event) => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
   
-        <td class='text-center'><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.matricula}</a></td>
-        <td class="text-center"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${dataCorreta}</a></td>
-        <td class="text-center"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.observacao}</a></td>
-        <td  class="text-center">
+        <td class="text-center align-middle"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.matricula}</a></td>
+        <td class="text-center align-middle"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${dataCorreta}</a></td>
+        <td class="text-center align-middle"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.observacao}</a></td>
+        <td class="text-center align-middle">
             <a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}" class="btn btn-outline-secondary mb-1">💾</a>
             <a href="./apagar.html?matricula=${entrada.matricula}&id=${entrada._id}&data=${entrada.data}&observacao=${entrada.observacao}" class="btn btn-outline-secondary mb-1">🗑️</i></a>
             <a href="./info.html?id=${entrada.matricula}" class="btn btn-outline-secondary mb-1">⚙️</a>
@@ -205,7 +205,7 @@ mes.addEventListener('click', async(event) => {
         tabela.appendChild(tr);
   
         Swal.fire({
-          title: `${conteudo.length} registro(s) encontrados no último mês!`,
+          title: `${conteudo.length} registro(s) encontrado(s) no último mês!`,
           icon: "success",
           confirmButtonColor: "#0275d8",
         });
@@ -237,7 +237,7 @@ ano.addEventListener('click', async(event) => {
 
       if(conteudo.length == 0){
         Swal.fire({
-          title: `${conteudo.length} registro(s) encontrados no último ano!`,
+          title: `${conteudo.length} registro(s) encontrado(s) no último ano!`,
           icon: "success",
           confirmButtonColor: "#0275d8",
         });
@@ -253,10 +253,10 @@ ano.addEventListener('click', async(event) => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
   
-        <td class='text-center'><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.matricula}</a></td>
-        <td class="text-center"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${dataCorreta}</a></td>
-        <td class="text-center"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.observacao}</a></td>
-        <td  class="text-center">
+        <td class="text-center align-middle"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.matricula}</a></td>
+        <td class="text-center align-middle"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${dataCorreta}</a></td>
+        <td class="text-center align-middle"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.observacao}</a></td>
+        <td class="text-center align-middle">
             <a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}" class="btn btn-outline-secondary mb-1">💾</a>
             <a href="./apagar.html?matricula=${entrada.matricula}&id=${entrada._id}&data=${entrada.data}&observacao=${entrada.observacao}" class="btn btn-outline-secondary mb-1">🗑️</i></a>
             <a href="./info.html?id=${entrada.matricula}" class="btn btn-outline-secondary mb-1">⚙️</a>
@@ -265,7 +265,7 @@ ano.addEventListener('click', async(event) => {
         tabela.appendChild(tr);
   
         Swal.fire({
-          title: `${conteudo.length} registro(s) encontrados no último ano!`,
+          title: `${conteudo.length} registro(s) encontrado(s) no último ano!`,
           icon: "success",
           confirmButtonColor: "#0275d8",
         });
