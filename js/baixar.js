@@ -29,21 +29,24 @@ try {
 
   // Coloca as informações vindas da requisação dentro da tabela do HTML;
   tabela.innerHTML = `
+ <thead> 
   <tr>
-      <th colspan="4" style="text-align: center; margin: 1rem;"><h3>Informações do acesso 🔐</h3></th>
+      <th colspan="4" style="text-align: center; margin: 1rem;"><h3>Informações do acesso <img src="../img/acessar.png" width='32px'></h3></th>
   </tr>
   <tr>
     <th scope="col">Matrícula 📝</th>
     <th scope="col">Data 📆</th>
     <th scope="col">Observação 🔍</th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <td>${matricula}</td>
     <td>${dataCorreta}</td>
     <td>${observacao}</td>
   </tr>
   <tr>
-    <th colspan="4" style="text-align: center; margin: 1rem;"><h3>Informações do Usuário  📂</h3></th>
+    <th colspan="4" style="text-align: center; margin: 1rem;"><h3>Informações do Usuário  <img src="../img/perfil.png" width='32px'></h3></th>
   </tr>
   <tr>
     <th scope="col">Nome 👤</th>
@@ -55,6 +58,7 @@ try {
     <td>${conteudo.infos.rg}</td>
     <td>${conteudo.infos.cpf}</td>
   </tr>
+  </tbody>
   `
   
 } catch (error) {
