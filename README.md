@@ -67,7 +67,7 @@ Apenas <a href="https://ceupimentas.vercel.app/index.html">clique aqui</a> para 
 
 ## 👨‍🎓 Alunos
 <p align='justify'>
-- Welton Rodrigues <br>
+- <a href="https://github.com/weltondev" target="_blank">Welton Rodrigues</a><br>
 - Uelson de Almeida <br>
 - Sonia Paula <br>
 - Elio Rodrigues <br>
