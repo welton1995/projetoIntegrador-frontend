@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- Icone -->
     <link rel="icon" href="./img/logo.png" type="image/png">
     <!-- animateCSS -->
@@ -110,7 +111,7 @@
           </div>
         </div>
       </div>
-      </div>
+    </div>
     </div>
     </div> 
 
@@ -137,6 +138,64 @@
                   </div>
                 </div>
   </main>
-    <script src="./js/app.js"></script>
+<!-- Mensagem de inicio -->
+<div class="overlay d-none" id="messageOverlay">
+  <div class="container d-flex align-items-center justify-content-center">
+    <div class="alert alert-info alert-dismissible fade show mt-5 text-center" role="alert">
+      <div class="text-justify">
+        <img src="./img/logo1.png" alt="logo" title="Bem vindo" style="margin-bottom: 1rem;">
+        <h4>
+          Bem vindo ao CEU Pimentas!
+        </h4>
+        <p style="text-align: center;">
+          Para registrar um acesso digite sua matrícula,<br>caso não possua uma cadastra-se!
+        </p>
+      </div>
+      
+      <br><br><button type="button" class="btn btn-primary btn-sm ml-2" id="btnOK" style="width: 30%;">OK</button>
+    </div>
+  </div>
+</div>
+
+<!-- jQuery e Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  // Exibir mensagem e escurecer o fundo
+  function showMessage() {
+    $('#messageOverlay').removeClass('d-none');
+  }
+
+  // Esconder mensagem e remover o escurecimento do fundo
+  function hideMessage() {
+    $('#messageOverlay').addClass('d-none');
+  }
+
+  // Exibir mensagem por 5 segundos e depois escondê-la
+  $(document).ready(function() {
+    showMessage();
+    setTimeout(hideMessage, 10000); // 10000 milissegundos = 10 segundos
+  });
+
+  // Fechar mensagem ao clicar no botão "OK"
+  $('#btnOK').click(function() {
+    hideMessage();
+  });
+
+  // Fechar mensagem ao clicar fora dela
+  $(document).mouseup(function(e) {
+    var container = $("#messageOverlay");
+
+    // Se o clique ocorreu fora da mensagem, fecha-a
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+      hideMessage();
+    }
+  });
+</script>
+
+
+    <script src="./js/app.js" defer></script>
   </body>
   </html>
