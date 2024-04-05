@@ -17,7 +17,8 @@ const inputCpfCadastro = document.querySelector('#cpfCadastro');
 const botaoCadastrar = document.querySelector('#cadastrar');
 
 // URL API
-const URL = 'https://projetointegrador.cyclic.app';
+const URL = 'https://graceful-sock-hare.cyclic.app';
+
 
 // Funcao Busca data especifica
 buscar.addEventListener('click', async (event) => {

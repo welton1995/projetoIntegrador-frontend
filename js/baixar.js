@@ -5,7 +5,8 @@ const observacao = parametros.get('observacao');
 const dataFormatada = new Date(parametros.get('data')); // Pega a data via URL
 const dataCorreta = dataFormatada.toLocaleDateString('pt-BR', {timeZone: 'UTC', year: 'numeric', month:'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'});
 const tabela = document.querySelector('#tabela');
-const URL = 'https://projetointegrador.cyclic.app';
+const URL = 'https://graceful-sock-hare.cyclic.app';
+
 
 // Busca CPF
 const botaoBuscaCpf = document.querySelector('#btnBuscarCpf');

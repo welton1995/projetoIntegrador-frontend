@@ -4,7 +4,8 @@
   const apagar = document.querySelector('#apagar');
   const logo = document.querySelector('#logo');
   const voltar = document.querySelector('#voltar');
-  const URL = 'https://projetointegrador.cyclic.app';
+const URL = 'https://graceful-sock-hare.cyclic.app';
+  
 
 
   const parametros = new URLSearchParams(window.location.search);

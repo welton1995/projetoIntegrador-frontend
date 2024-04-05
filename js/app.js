@@ -1,5 +1,5 @@
 // URL API
-const URL = 'https://projetointegrador.cyclic.app';
+const URL = 'https://graceful-sock-hare.cyclic.app';
 
 // Busca CPF
 const botaoBuscaCpf = document.querySelector('#btnBuscarCpf');

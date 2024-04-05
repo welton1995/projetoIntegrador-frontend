@@ -2,7 +2,8 @@ const nome = document.querySelector('#nome');
 const matricula = document.querySelector('#matricula');
 const rg = document.querySelector('#rg');
 const cpf = document.querySelector('#cpf');
-const URL = 'https://projetointegrador.cyclic.app';
+const URL = 'https://graceful-sock-hare.cyclic.app';
+
 
 // Busca CPF
 const botaoBuscaCpf = document.querySelector('#btnBuscarCpf');
