@@ -1,22 +1,23 @@
+// URL da API
+const URL = 'https://graceful-sock-hare.cyclic.app';
+
+// Inputs e Buttons
 const nome = document.querySelector('#nome');
 const matricula = document.querySelector('#matricula');
 const rg = document.querySelector('#rg');
 const cpf = document.querySelector('#cpf');
-const URL = 'https://graceful-sock-hare.cyclic.app';
-
 
 // Busca CPF
 const botaoBuscaCpf = document.querySelector('#btnBuscarCpf');
 const inputBuscaCpf = document.querySelector('#inputBuscarCpf');
 
-// Cadastra usuario
+// Cadastra Usuario
 const inputNomeCadastro = document.querySelector('#nomeCadastro');
 const inputRgCadastro = document.querySelector('#rgCadastro');
 const inputCpfCadastro = document.querySelector('#cpfCadastro');
 const botaoCadastrar = document.querySelector('#cadastrar');
 
-
-// PEGANDO OS PARAMETROS VIA URL
+// Pegando os parametros via URL
 const parametros = new URLSearchParams(window.location.search);
 const id = parametros.get('id')
 
@@ -40,8 +41,6 @@ tr.innerHTML = `
 `;
 
 tabela.appendChild(tr);
-
-console.log(conteudo)
 
 } catch (error) {
   console.log(error)
@@ -85,7 +84,6 @@ botaoBuscaCpf.addEventListener('click', async (event)=> {
   const resposta = await fetch(`${URL}/matriculas/cpf/${inputBuscaCpf.value}`, requestOptions);
   const conteudo = await resposta.json();
 
-
   if(conteudo == "Matrícula não encontrada!"){
     Swal.fire({
       title: "Usuário não cadastrado!",
@@ -94,7 +92,6 @@ botaoBuscaCpf.addEventListener('click', async (event)=> {
     });
     return inputBuscaCpf.value = '';
   }
-
 
   Swal.fire({
     title: `${conteudo.infos.nome}`,
@@ -106,16 +103,12 @@ botaoBuscaCpf.addEventListener('click', async (event)=> {
     <b>RG</b>: ${conteudo.infos.rg}<br>
     `
   });
-
-  console.log(conteudo);
   } catch (error) {
     console.log(error);
   }
-
 });
 
 // ---------- CADASTRAR -----------
-
 // Funcao conta Matriculas
 const geraMatricula = async () => {
   try {

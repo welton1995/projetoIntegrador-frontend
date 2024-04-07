@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Icone -->
     <link rel="icon" href="./img/logo.png" type="image/png">
     <!-- animateCSS -->
@@ -52,8 +56,26 @@
   </header>
 
   <main>
-    <!-- Acessar -->
-    <div class="col d-flex justify-content-center align-items-center">
+  <!-- Mensagem de inicio -->
+  <div class="fundo d-none d-flex align-items-center justify-content-center" id="messageOverlay">
+    <div class="container d-flex align-items-center justify-content-center">
+      <div class="alert alert-info alert-dismissible fade show m-5 text-center" role="alert">
+        <div class="text-center">
+          <img src="./img/logo1.png" alt="logo" title="Bem vindo" style="margin-bottom: 1rem;">
+          <h4>
+            Bem vindo ao CEU Pimentas!
+          </h4>
+          <p style="text-align: center;">
+            Para registrar um acesso digite sua matrícula,<br>caso não possua uma cadastra-se!
+          </p>
+        </div>
+        <br><br><button type="button" class="btn btn-primary btn-sm ml-2" id="btnOK" style="width: 30%;">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Acessar -->
+  <div class="col d-flex justify-content-center align-items-center">
       <div class="">
         <form style="padding: 2rem; border-radius: 14px; box-shadow: 5px 5px 15px; background-color: #e3f2fd; margin: 1rem 0">
           <h2 class="text-center" id="acessar">Acessar <img src="./img/acessar.png" width="32px"></h2>          
@@ -76,21 +98,20 @@
           </div>
         </form>
       </div>
-    </div>
+  </div>
 
-    <!-- Cadastrar -->
-    <div class="modal fade" id="janelaModal">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-          
-        <div class="modal-content">
-          <div class="modal-header">
-              <h2 class="modal-title">Cadastrar usuário <img src="../img/cadastrar.png" width='48px'></h2>
-              <button class="btn btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-              <!-- Formulario cadastro usuario -->
-              <form class="text-center">
-                <!-- Nome -->
+  <!-- Cadastrar -->
+  <div class="modal fade" id="janelaModal">
+    <div class="modal-dialog modal-dialog-centered modal-lg">         
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Cadastrar usuário <img src="../img/cadastrar.png" width='48px'></h2>
+            <button class="btn btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Formulario cadastro usuario -->
+          <form class="text-center">
+            <!-- Nome -->
                 <div class="form-group">
                   <img src="./img/logo1.png" alt="" id="imagemLogo"><br>
                   <label class="form-label" for="nome">Nome 👤</label>
@@ -111,91 +132,35 @@
           </div>
         </div>
       </div>
-    </div>
-    </div>
-    </div> 
-
-                <!-- Tabela de registros -->
-                <div style="padding: .25rem; background-color: #e3f2fd; margin-top: 1rem ;">
-                  <h2>Registros <img src="./img/registros.png" width="48px"></h2>
-                </div>
-                <table class="table">
-                  <thead>
-                      <tr>
-                          <th scope="col" class="text-center">Matrícula 📝</th>
-                          <th scope="col" class="text-center">Data e Hora 📆</th>
-                          <th scope="col" class="text-center">Observação 🔍</th>
-                          <th scope="col" class="text-center">Ações 💻</th>
-                      </tr>
-                  </thead>
-                  <tbody id="tabela">
-                  </tbody>
-                </table>
-                <div class="bd-example">
-                  <div class="col d-flex justify-content-center align-items-center">
-                    <h4 id="bancodeDadosVazio">Nenhum registro</h4>
-                    <img class='text-center' src="../img/loading.gif" alt="loading" id="loading" width="50px"  style="display: none;">
-                  </div>
-                </div>
-  </main>
-<!-- Mensagem de inicio -->
-<div class="overlay d-none" id="messageOverlay">
-  <div class="container d-flex align-items-center justify-content-center">
-    <div class="alert alert-info alert-dismissible fade show mt-5 text-center" role="alert">
-      <div class="text-justify">
-        <img src="./img/logo1.png" alt="logo" title="Bem vindo" style="margin-bottom: 1rem;">
-        <h4>
-          Bem vindo ao CEU Pimentas!
-        </h4>
-        <p style="text-align: center;">
-          Para registrar um acesso digite sua matrícula,<br>caso não possua uma cadastra-se!
-        </p>
-      </div>
-      
-      <br><br><button type="button" class="btn btn-primary btn-sm ml-2" id="btnOK" style="width: 30%;">OK</button>
-    </div>
   </div>
-</div>
 
-<!-- jQuery e Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Tabela de registros -->
+  <div style="padding: .25rem; background-color: #e3f2fd; margin-top: 1rem ;">
+      <h2>Registros <img src="./img/registros.png" width="48px"></h2>
+  </div>
+  <table class="table">
+      <thead>
+          <tr>
+              <th scope="col" class="text-center">Matrícula 📝</th>
+              <th scope="col" class="text-center">Data e Hora 📆</th>
+              <th scope="col" class="text-center">Observação 🔍</th>
+              <th scope="col" class="text-center">Ações 💻</th>
+          </tr>
+      </thead>
+      <tbody id="tabela">
+      </tbody>
+  </table>
 
-<script>
-  // Exibir mensagem e escurecer o fundo
-  function showMessage() {
-    $('#messageOverlay').removeClass('d-none');
-  }
+  <!-- Mensagem se o Banco de dados estiver vazio -->
+  <div class="bd-example">
+      <div class="col d-flex justify-content-center align-items-center">
+        <h4 id="bancodeDadosVazio">Nenhum registro</h4>
+        <img class='text-center' src="../img/loading.gif" alt="loading" id="loading" width="50px"  style="display: none;">
+      </div>
+  </div>
+  </main>
 
-  // Esconder mensagem e remover o escurecimento do fundo
-  function hideMessage() {
-    $('#messageOverlay').addClass('d-none');
-  }
-
-  // Exibir mensagem por 5 segundos e depois escondê-la
-  $(document).ready(function() {
-    showMessage();
-    setTimeout(hideMessage, 10000); // 10000 milissegundos = 10 segundos
-  });
-
-  // Fechar mensagem ao clicar no botão "OK"
-  $('#btnOK').click(function() {
-    hideMessage();
-  });
-
-  // Fechar mensagem ao clicar fora dela
-  $(document).mouseup(function(e) {
-    var container = $("#messageOverlay");
-
-    // Se o clique ocorreu fora da mensagem, fecha-a
-    if (!container.is(e.target) && container.has(e.target).length === 0) {
-      hideMessage();
-    }
-  });
-</script>
-
-
-    <script src="./js/app.js" defer></script>
+  <!-- scripts da página -->
+  <script src="./js/app.js" defer></script>
   </body>
   </html>

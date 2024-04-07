@@ -1,3 +1,7 @@
+// URL da API
+const URL = 'https://graceful-sock-hare.cyclic.app';
+
+// Inputs e Buttons
 const inicio = document.querySelector('#inicio');
 const fim = document.querySelector('#fim');
 const buscar = document.querySelector('#buscar');
@@ -16,10 +20,7 @@ const inputRgCadastro = document.querySelector('#rgCadastro');
 const inputCpfCadastro = document.querySelector('#cpfCadastro');
 const botaoCadastrar = document.querySelector('#cadastrar');
 
-// URL API
-const URL = 'https://graceful-sock-hare.cyclic.app';
-
-
+// ------ Funções de busca por data ---------
 // Funcao Busca data especifica
 buscar.addEventListener('click', async (event) => {
     if(!inicio.value || !fim.value){
@@ -299,7 +300,7 @@ const limparTabela = () => {
 }
 
 // -------- BUSCAR CPF NO BANCO DE DADOS ------------
-// Valida o CPF para busca no banco de dados 'GET'/:cpf
+// Valida o CPF para busca no banco de dados
 inputBuscaCpf.addEventListener('keyup', ()=>{
   if(inputBuscaCpf.value.length > 11){
     Swal.fire({
@@ -311,7 +312,7 @@ inputBuscaCpf.addEventListener('keyup', ()=>{
   }
  });
 
- // Busca CPF no Banco de dados 'GET'/:cpf
+ // Busca CPF no Banco de dados
 botaoBuscaCpf.addEventListener('click', async (event)=> {
   event.preventDefault();
   try {
@@ -362,11 +363,8 @@ botaoBuscaCpf.addEventListener('click', async (event)=> {
 
 });
 
-
-
-// ---------- CADASTRAR -----------
-
-// Funcao conta Matriculas
+// ------------- CADASTRAR --------------------
+// Funcao gera Matriculas
 const geraMatricula = async () => {
   try {
     const requestOptions = {

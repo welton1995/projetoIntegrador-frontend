@@ -1,3 +1,7 @@
+// URL da API
+const URL = 'https://graceful-sock-hare.cyclic.app';
+
+// Pegando os parametros via URL
 const parametros = new URLSearchParams(window.location.search); // Busca informações contidas na URL do navegador
 const id = parametros.get('id');
 const matricula = parametros.get('matricula');
@@ -5,8 +9,6 @@ const observacao = parametros.get('observacao');
 const dataFormatada = new Date(parametros.get('data')); // Pega a data via URL
 const dataCorreta = dataFormatada.toLocaleDateString('pt-BR', {timeZone: 'UTC', year: 'numeric', month:'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'});
 const tabela = document.querySelector('#tabela');
-const URL = 'https://graceful-sock-hare.cyclic.app';
-
 
 // Busca CPF
 const botaoBuscaCpf = document.querySelector('#btnBuscarCpf');
@@ -28,8 +30,7 @@ try {
   const resposta = await fetch(`${URL}/matriculas/${matricula}`, requestOptions)
   const conteudo = await resposta.json();
 
-  // Coloca as informações vindas da requisação dentro da tabela do HTML;
-  tabela.innerHTML = `
+ tabela.innerHTML = `
  <thead> 
   <tr>
       <th colspan="4" style="text-align: center; margin: 1rem;"><h3>Informações do acesso <img src="../img/acessar.png" width='32px'></h3></th>

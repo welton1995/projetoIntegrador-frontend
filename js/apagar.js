@@ -1,23 +1,25 @@
-  const matricula = document.querySelector('#matriculaApagar');
-  const data = document.querySelector('#datahoraApagar');
-  const observacao = document.querySelector('#observacaoApagar');
-  const apagar = document.querySelector('#apagar');
-  const logo = document.querySelector('#logo');
-  const voltar = document.querySelector('#voltar');
+// URL da API
 const URL = 'https://graceful-sock-hare.cyclic.app';
-  
 
+// Inputs e buttons
+const matricula = document.querySelector('#matriculaApagar');
+const data = document.querySelector('#datahoraApagar');
+const observacao = document.querySelector('#observacaoApagar');
+const apagar = document.querySelector('#apagar');
+const logo = document.querySelector('#logo');
+const voltar = document.querySelector('#voltar');
 
-  const parametros = new URLSearchParams(window.location.search);
-  const id = parametros.get('id')
-  const matriculaURL = parametros.get('matricula');
-  const observacaoURL = parametros.get('observacao');
-  const dataURL = parametros.get('data');
-  const dataFormatada = new Date(dataURL);
-  const dataCorreta = dataFormatada.toLocaleDateString('pt-BR', {timeZone: 'UTC', year: 'numeric', month:'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'});
-  matricula.value = matriculaURL;
-  data.value = dataCorreta;
-  observacao.value = observacaoURL;
+// Parametros via URL e Formatação da Data
+const parametros = new URLSearchParams(window.location.search);
+const id = parametros.get('id')
+const matriculaURL = parametros.get('matricula');
+const observacaoURL = parametros.get('observacao');
+const dataURL = parametros.get('data');
+const dataFormatada = new Date(dataURL);
+const dataCorreta = dataFormatada.toLocaleDateString('pt-BR', {timeZone: 'UTC', year: 'numeric', month:'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'});
+matricula.value = matriculaURL;
+data.value = dataCorreta;
+observacao.value = observacaoURL;
 
   // Busca CPF
 const botaoBuscaCpf = document.querySelector('#btnBuscarCpf');
@@ -67,7 +69,6 @@ const botaoCadastrar = document.querySelector('#cadastrar');
     }
   });
 
-
   // -------- BUSCAR CPF NO BANCO DE DADOS ------------
 // Valida o CPF para busca no banco de dados 'GET'/:cpf
 inputBuscaCpf.addEventListener('keyup', ()=>{
@@ -103,7 +104,6 @@ botaoBuscaCpf.addEventListener('click', async (event)=> {
   const resposta = await fetch(`${URL}/matriculas/cpf/${inputBuscaCpf.value}`, requestOptions);
   const conteudo = await resposta.json();
 
-
   if(conteudo == "Matrícula não encontrada!"){
     Swal.fire({
       title: "Usuário não cadastrado!",
@@ -112,7 +112,6 @@ botaoBuscaCpf.addEventListener('click', async (event)=> {
     });
     return inputBuscaCpf.value = '';
   }
-
 
   Swal.fire({
     title: `${conteudo.infos.nome}`,

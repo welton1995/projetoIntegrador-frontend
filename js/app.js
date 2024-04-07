@@ -1,4 +1,4 @@
-// URL API
+// URL da API
 const URL = 'https://graceful-sock-hare.cyclic.app';
 
 // Busca CPF
@@ -16,7 +16,7 @@ const matriculaAcessar = document.querySelector('#matricula');
 const dataAcessar = document.querySelector('#datahora');
 const observacaoAcessar = document.querySelector('#observacao');
 
-// Funcao conta Matriculas
+// Funcao para gerar matriculas
 const geraMatricula = async () => {
   try {
     const requestOptions = {
@@ -38,13 +38,12 @@ const geraMatricula = async () => {
 
 // -------- RELATORIO DE ACESSO -----------------
 // Busca registros no Banco de dados 'GET'
-const buscaRegistros = async () => {
+  const buscaRegistros = async () => {
   let tabela = document.querySelector('#tabela');
   let bancodeDadosVazio = document.querySelector('#bancodeDadosVazio');
   let imagemLoading = document.querySelector('#loading');
 
   try {
-
     imagemLoading.style.display = 'block';
 
       const requestOptions = {
@@ -53,6 +52,7 @@ const buscaRegistros = async () => {
     };
     const resposta = await fetch(`${URL}/entradas`, requestOptions)
     const conteudo = await resposta.json();
+
     conteudo.entradas.reverse().forEach((entrada)=>{
       const dataFormatada = new Date(entrada.data);
       const dataCorreta = dataFormatada.toLocaleDateString('pt-BR', {timeZone: 'UTC', year: 'numeric', month:'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'});
@@ -120,7 +120,6 @@ botaoBuscaCpf.addEventListener('click', async (event)=> {
   const resposta = await fetch(`${URL}/matriculas/cpf/${inputBuscaCpf.value}`, requestOptions);
   const conteudo = await resposta.json();
 
-
   if(conteudo == "Matrícula não encontrada!"){
     Swal.fire({
       title: "Usuário não cadastrado!",
@@ -129,7 +128,6 @@ botaoBuscaCpf.addEventListener('click', async (event)=> {
     });
     return inputBuscaCpf.value = '';
   }
-
 
   Swal.fire({
     title: `${conteudo.infos.nome}`,
@@ -142,11 +140,9 @@ botaoBuscaCpf.addEventListener('click', async (event)=> {
     `
   });
 
-  console.log(conteudo);
   } catch (error) {
     console.log(error);
   }
-
 });
 
 // ---------- CADASTRAR -----------
@@ -355,6 +351,38 @@ botaoAcessar.addEventListener('click', async (event) => {
     console.log(error);
   }
 });
+
+// ----------- Mensagem Inicio ----------------
+  // Exibir mensagem e escurecer o fundo
+  function showMessage() {
+    $('#messageOverlay').removeClass('d-none');
+  }
+
+  // Esconder mensagem e remover o escurecimento do fundo
+  function hideMessage() {
+    $('#messageOverlay').addClass('d-none');
+  }
+
+  // Exibir mensagem por 10 segundos
+  $(document).ready(function() {
+    showMessage();
+    setTimeout(hideMessage, 10000); // 10000 milissegundos = 10 segundos
+  });
+
+  // Fechar mensagem ao clicar no botão "OK"
+  $('#btnOK').click(function() {
+    hideMessage();
+  });
+
+  // Fechar mensagem ao clicar fora dela
+  $(document).mouseup(function(e) {
+    var container = $("#messageOverlay");
+
+    // Se o clique ocorreu fora da mensagem, fecha-a
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+      hideMessage();
+    }
+  });
 
 
 
