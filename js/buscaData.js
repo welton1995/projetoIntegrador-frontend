@@ -9,6 +9,7 @@ const limpar = document.querySelector('#limpar');
 const semana = document.querySelector('#semana');
 const mes = document.querySelector('#mes');
 const ano = document.querySelector('#ano');
+const loading = document.querySelector('#loading');
 
 // Busca CPF
 const botaoBuscaCpf = document.querySelector('#btnBuscarCpf');
@@ -23,12 +24,15 @@ const botaoCadastrar = document.querySelector('#cadastrar');
 // ------ Funções de busca por data ---------
 // Funcao Busca data especifica
 buscar.addEventListener('click', async (event) => {
+    loading.style.display = 'block';
+
     if(!inicio.value || !fim.value){
         Swal.fire({
             title: "Por favor preencha os campos corretamente!",
             icon: "warning",
             confirmButtonColor: "#0275d8",
           });
+          loading.style.display = 'none';
           return;
     }
     if(fim.value < inicio.value){
@@ -37,6 +41,7 @@ buscar.addEventListener('click', async (event) => {
             icon: "warning",
             confirmButtonColor: "#0275d8",
           });
+        loading.style.display = 'none';
     }
     try {
         event.preventDefault();
@@ -63,12 +68,11 @@ buscar.addEventListener('click', async (event) => {
               icon: "success",
               confirmButtonColor: "#0275d8",
             });
+            loading.style.display = 'none';
             return;
           }
-          
-          console.log(conteudo)
 
-          conteudo.reverse().forEach((entrada)=>{
+            conteudo.reverse().forEach((entrada)=>{
             const dataFormatada = new Date(entrada.data);
             const dataCorreta = dataFormatada.toLocaleDateString('pt-BR', {timeZone: 'UTC', year: 'numeric', month:'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'});
             const tabela = document.querySelector('#tabela');
@@ -93,11 +97,12 @@ buscar.addEventListener('click', async (event) => {
             });
       
             bancodeDadosVazio.style.display = 'none';
-            
+            loading.style.display = 'none';
           });
 
     } catch (error) {
         console.log(error);
+        loading.style.display = 'none';
     }
 });
 
@@ -106,6 +111,8 @@ semana.addEventListener('click', async(event) => {
   try {
     event.preventDefault();
     limparTabela();
+    loading.style.display = 'block';
+
       const requestOptions = {
         method: 'GET',
         redirect: 'follow',
@@ -123,11 +130,10 @@ semana.addEventListener('click', async(event) => {
           icon: "success",
           confirmButtonColor: "#0275d8",
         });
+        loading.style.display = 'none';
         return;
       }
       
-      console.log(conteudo);
-
       conteudo.reverse().forEach((entrada)=>{
         const dataFormatada = new Date(entrada.data);
         const dataCorreta = dataFormatada.toLocaleDateString('pt-BR', {timeZone: 'UTC', year: 'numeric', month:'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'});
@@ -153,12 +159,13 @@ semana.addEventListener('click', async(event) => {
         });
   
         bancodeDadosVazio.style.display = 'none';
+        loading.style.display = 'none';
       });
 
 } catch (error) {
     console.log(error);
+    loading.style.display = 'none';
 }
-
 });
 
 // Funcao Busca ultimo mes
@@ -166,6 +173,7 @@ mes.addEventListener('click', async(event) => {
   try {
     event.preventDefault();
     limparTabela();
+    loading.style.display = 'block';
       const requestOptions = {
         method: 'GET',
         redirect: 'follow',
@@ -183,12 +191,11 @@ mes.addEventListener('click', async(event) => {
           icon: "success",
           confirmButtonColor: "#0275d8",
         });
+        loading.style.display = 'none';
         return;
       }
-      
-      console.log(conteudo);
 
-      conteudo.reverse().forEach((entrada)=>{
+        conteudo.reverse().forEach((entrada)=>{
         const dataFormatada = new Date(entrada.data);
         const dataCorreta = dataFormatada.toLocaleDateString('pt-BR', {timeZone: 'UTC', year: 'numeric', month:'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'});
         const tabela = document.querySelector('#tabela');
@@ -213,12 +220,13 @@ mes.addEventListener('click', async(event) => {
         });
   
         bancodeDadosVazio.style.display = 'none';
+        loading.style.display = 'none';
       });
 
 } catch (error) {
     console.log(error);
+    loading.style.display = 'none';
 }
-
 });
 
 // Funcao Busca ultimo ano
@@ -226,6 +234,7 @@ ano.addEventListener('click', async(event) => {
   try {
     event.preventDefault();
     limparTabela();
+    loading.style.display = 'block';
       const requestOptions = {
         method: 'GET',
         redirect: 'follow',
@@ -243,18 +252,16 @@ ano.addEventListener('click', async(event) => {
           icon: "success",
           confirmButtonColor: "#0275d8",
         });
+        loading.style.display = 'none';
         return;
       }
-      
-      console.log(conteudo);
 
-      conteudo.reverse().forEach((entrada)=>{
+        conteudo.reverse().forEach((entrada)=>{
         const dataFormatada = new Date(entrada.data);
         const dataCorreta = dataFormatada.toLocaleDateString('pt-BR', {timeZone: 'UTC', year: 'numeric', month:'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'});
         const tabela = document.querySelector('#tabela');
         const tr = document.createElement('tr');
         tr.innerHTML = `
-  
         <td class="text-center align-middle"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.matricula}</a></td>
         <td class="text-center align-middle"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${dataCorreta}</a></td>
         <td class="text-center align-middle"><a href="./baixar.html?id=${entrada._id}&matricula=${entrada.matricula}&observacao=${entrada.observacao}&data=${entrada.data}">${entrada.observacao}</a></td>
@@ -273,31 +280,38 @@ ano.addEventListener('click', async(event) => {
         });
   
         bancodeDadosVazio.style.display = 'none';
+        loading.style.display = 'none';
       });
 
 } catch (error) {
     console.log(error);
+    loading.style.display = 'none';
 }
 
 });
 
 // Funcao limpar campos
-limpar.addEventListener('click', () => {
-    try {
-        window.location.reload();
-    } catch (error) {
-        console.log(error);
-    }
-});
-
 const limparTabela = () => {
   try {
-    let tabela = document.querySelector('#tabela');
-    tabela.innerHTML = ``
+    const tabela = document.querySelector('#tabela');
+    tabela.innerHTML = ``;
+    bancodeDadosVazio.style.display = 'block';
   } catch (error) {
     console.log(error);
   }
 }
+
+limpar.addEventListener('click', (event) =>{
+  try {
+    event.preventDefault(); 
+    loading.style.display = 'block';
+    limparTabela();
+    loading.style.display = 'none';
+} catch (error) {
+  console.log(error);
+  loading.style.display = 'none';
+}
+});
 
 // -------- BUSCAR CPF NO BANCO DE DADOS ------------
 // Valida o CPF para busca no banco de dados
