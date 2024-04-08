@@ -61,6 +61,7 @@
       <strong>Bem-vindo ao CEU Pimentas!</strong><br> Para registrar um acesso digite uma matrícula,
       caso não possua uma cadastra-se.
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      <div id="cronometro">10</div>
     </div>
   </div>
 
@@ -190,6 +191,21 @@
 
 });
   </script>
+<!-- tempo mensagem inicio -->
+<script>
+  var tempoRestante = 10;
+
+  // Função para atualizar o cronômetro a cada segundo
+  var atualizarCronometro = setInterval(function() {
+    tempoRestante--;
+    document.getElementById('cronometro').textContent = tempoRestante;
+
+    // Verifica se o tempo acabou
+    if (tempoRestante <= 0) {
+      clearInterval(atualizarCronometro); // Para o cronômetro
+    }
+  }, 1000);
+</script>
 
   <!-- scripts da página -->
   <script src="./js/app.js" defer></script>
